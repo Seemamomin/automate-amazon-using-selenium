@@ -1,0 +1,29 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class amazonlogin {
+
+ public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver","C:\\java selinum\\chromedriver_win32 (1)\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.amazon.in/");
+        driver.findElement(By.cssSelector("#nav-signin-tooltip > a")).click();
+		driver.findElement(By.cssSelector("#ap_email")).sendKeys("9049979931");
+		driver.findElement(By.cssSelector("#continue")).click();
+		driver.findElement(By.cssSelector("#ap_password")).sendKeys("Amazon@123");
+		driver.findElement(By.cssSelector("#signInSubmit")).click();
+        Select dropdown=new Select(driver.findElement(By.cssSelector("#searchDropdownBox")));
+        dropdown.selectByVisibleText("Electronics");
+        driver.findElement(By.cssSelector("#nav-search-submit-button")).click();
+        driver.findElement(By.className("sl-sobe-carousel-sub-card-img")).click();
+        driver.findElement(By.className("s-image")).click();
+        driver.findElement(By.className("a-button-input")).click();
+        driver.findElement(By.className("a-button-input")).click();
+        
+        driver.findElement(By.id("add-to-cart-button")).click();
+
+        driver.close();
+}
+ }
